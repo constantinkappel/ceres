@@ -4,3 +4,6 @@
 [submodule "ceres-BLE_to_MQTT_bridge"]
 	path = ceres-BLE_to_MQTT_bridge
 	url = https://github.com/constantinkappel/ceres-BLE_to_MQTT_bridge.git
+[submodule "ceres-Node-RED"]
+	path = ceres-Node-RED
+	url = https://github.com/constantinkappel/ceres-Node-RED.git
