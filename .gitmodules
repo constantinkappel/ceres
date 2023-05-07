@@ -1,0 +1,6 @@
+[submodule "ceres-GreenhouseSensorService"]
+	path = ceres-GreenhouseSensorService
+	url = https://github.com/constantinkappel/ceres-GreenhouseSensorService.git
+[submodule "ceres-BLE_to_MQTT_bridge"]
+	path = ceres-BLE_to_MQTT_bridge
+	url = https://github.com/constantinkappel/ceres-BLE_to_MQTT_bridge.git

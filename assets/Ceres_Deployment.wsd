@@ -1,0 +1,38 @@
+@startuml Data Flow Diagram
+node Arduino_Nano_Sense
+node ESP32
+note left 
+    ESP32 is a microcontroller 
+    with BLE and WLAN. 
+    It bridges between 
+    BLE characteristics and MQTT
+end note
+card light
+note right
+    LED light controlled 
+    through electrical relay
+end note
+node Raspberry_Pi_Zero_W as RPi {
+    component "Mosquitto Broker" as MQTT
+    component "Node-RED" as Node_RED
+    component "Node-RED Dashboard" as Dashboard
+    database InfluxDB
+    note right of InfluxDB
+        Future Improvement
+    end note
+}
+person User
+
+Arduino_Nano_Sense -(0- ESP32 : BLE 
+ESP32 -(0- MQTT : MQTT (Data)
+ESP32 -> light : MQTT (Control Signal)
+MQTT -(0- ESP32 : MQTT (Control Signal)
+MQTT -(0- Node_RED : MQTT (Data)
+MQTT -0)- Node_RED : MQTT (Control Signal)
+MQTT ..> InfluxDB : MQTT (Data)
+Dashboard <-0)- Node_RED : HTTP (Data)
+Dashboard -(0- Node_RED : HTTP (Control Signal)
+User -(0- Dashboard : Can see and control
+
+@enduml
+```
